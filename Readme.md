@@ -1,8 +1,10 @@
 # Dialogflow
-copy `.env` from Google Drive
 ```
 git clone https://github.com/Aldabot/dialogflow
 yarn install
+```
+copy `.env` from Google Drive
+```
 serverless invoke local -f webhook 
 ```
 
