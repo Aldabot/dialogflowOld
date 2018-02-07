@@ -1,4 +1,4 @@
-service: DialogflowWebhook
+service: Dialogflow
 
 provider:
   name: aws
@@ -37,8 +37,8 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  dialogflowWebhook:
-    handler: handler.hello
+  webhook:
+    handler: handler.index
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -84,3 +84,7 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+# Plugins
+plugins:
+  - serverless-webpack
