@@ -24,6 +24,8 @@ export const index = (event, context, callback) => {
     // terminate directly after we respond
     context.callbackWaitsForEmptyEventLoop = false;
 
+    console.log(JSON.stringify(event, null, 4));
+
     let sql = "SELECT * FROM persons";
     query(pool, sql, []).then((person) => {
         console.log(JSON.stringify(person, null, 4));
