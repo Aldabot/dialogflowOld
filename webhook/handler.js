@@ -32,15 +32,16 @@ export const index = (event, context, callback) => {
     var speech = "This is a sample response from your webhook!"
 
     const response = {
-        statusCode: 200,
-        body: {
+        "statusCode": 200,
+        "body": JSON.stringify({
             speech: speech,
             displayText: speech,
-            message: 'Success',
-        }
+            message: 'Success'}),
+        "isBase64Encoded": false
     };
 
-    console.log(response.body);
+    // console.log(response.body);
+
     callback(null,response);
 
     let sql = "SELECT * FROM persons";
