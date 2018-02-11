@@ -10,7 +10,7 @@ dotenv.config(); // load .env configs
 // reserve 10 MySQL connections in pool
 // when this lambda starts we will no PERMANENTLY have 10 open Connections which
 // by a so called MySQL POOL. E.g. if all 10 connections are busy, then this lambda
-// will automatically wait until it gets a free space to execute its queries 
+// will automatically wait until it gets a free space to execute its queries
 var pool = mysql.createPool({
     connectionLimit: 10,
     host: process.env.RDS_HOST,
@@ -19,10 +19,30 @@ var pool = mysql.createPool({
     database: process.env.RDS_DB
 });
 
-
 export const index = (event, context, callback) => {
     // terminate directly after we respond
     context.callbackWaitsForEmptyEventLoop = false;
+
+    console.log(JSON.stringify(event, null, 4));
+
+    console.log(JSON.stringify(event.body, null, 4));
+
+    console.log(JSON.parse(event.body));
+
+    var speech = "This is a sample response from your webhook!"
+
+    const response = {
+        "statusCode": 200,
+        "body": JSON.stringify({
+            speech: speech,
+            displayText: speech,
+            message: 'Success'}),
+        "isBase64Encoded": false
+    };
+
+    // console.log(response.body);
+
+    callback(null,response);
 
     let sql = "SELECT * FROM persons";
     query(pool, sql, []).then((person) => {
@@ -35,8 +55,8 @@ export const index = (event, context, callback) => {
         console.log(JSON.stringify(error, null, 4));
         respondError(callback);
     });
-};
 
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 // DATABASE
@@ -79,6 +99,7 @@ export const index = (event, context, callback) => {
 // "INSERT INTO PERSON SET ?" passing {psid: 123, session_id: "1a2"}
 // see: https://github.com/mysqljs/mysql#escaping-query-values
 ////////////////////////////////////////////////////////////////////////////////
+
 const getConnection = (pool) => {
     return pool.getConnectionAsync().disposer((connection) => {
         connection.release();
@@ -100,15 +121,20 @@ const query = (pool, sql, values) => {
 // see Documentation:
 // https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html
 ////////////////////////////////////////////////////////////////////////////////
+
 const respondOK = (callback) => {
     const response = {
         statusCode: 200,
         body: JSON.stringify({
+            speech: speech,
+            displayText: speech,
             message: 'Success',
         })
     };
+    console.log(body);
     callback(null, response);
 };
+
 const respondError = (callback) => {
     const response = {
         statusCode: 500,
@@ -116,5 +142,6 @@ const respondError = (callback) => {
             message: 'Failure',
         })
     };
+
     callback(null, response);
 }
