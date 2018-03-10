@@ -8,6 +8,20 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "run hello function",
+            "program": "${workspaceFolder}/handler.js",
+            "args": [
+                "invoke",
+                "local",
+                "-f",
+                "webhook",
+                "--data",
+                "{}"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/handler.js"
         }
