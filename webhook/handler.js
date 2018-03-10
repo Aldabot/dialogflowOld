@@ -1,12 +1,12 @@
 'use strict';
-
-import dotenv from 'dotenv';
-import mysql from 'mysql';
-import Promise from 'bluebird';
+console.log("Starting");
+var express = require("express");
+const mysql = require('mysql');
+const Promise = require('bluebird');
 Promise.promisifyAll(require("mysql/lib/Connection").prototype); // Promisfy MySQL callback-hell
 Promise.promisifyAll(require("mysql/lib/Pool").prototype);
-dotenv.config(); // load .env configs
-
+// dotenv.config(); // load .env configs
+console.log("Starting");
 // reserve 10 MySQL connections in pool
 // when this lambda starts we will no PERMANENTLY have 10 open Connections which
 // by a so called MySQL POOL. E.g. if all 10 connections are busy, then this lambda
@@ -19,7 +19,7 @@ var pool = mysql.createPool({
     database: process.env.RDS_DB
 });
 
-export const index = (event, context, callback) => {
+const index = (event, context, callback) => {
     // terminate directly after we respond
     context.callbackWaitsForEmptyEventLoop = false;
 
