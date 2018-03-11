@@ -1,4 +1,5 @@
 'use strict';
+
 console.log("Starting 01");
 var express = require("express");
 const mysql = require('mysql');
@@ -19,9 +20,12 @@ var pool = mysql.createPool({
     database: process.env.RDS_DB
 });
 
-const index = (event, context, callback) => {
+
+exports.index = (event, context, callback) => {
     // terminate directly after we respond
     context.callbackWaitsForEmptyEventLoop = false;
+
+    console.log("Printing input event");
 
     console.log(event);
 
@@ -30,6 +34,8 @@ const index = (event, context, callback) => {
     console.log(JSON.stringify(event.body, null, 4));
 
     console.log(JSON.parse(event.body));
+
+    console.log("Input event printed");
 
     var speech = "This is a sample response from your webhook!"
 
@@ -136,7 +142,6 @@ const respondOK = (callback) => {
     console.log(body);
     callback(null, response);
 };
-
 const respondError = (callback) => {
     const response = {
         statusCode: 500,
