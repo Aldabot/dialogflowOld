@@ -4,9 +4,10 @@
 git clone https://github.com/Aldabot/dialogflow
 yarn install
 ```
-copy `.env` from Google Drive
+
+## Testing
 ```
-serverless invoke local -f webhook 
+serverless invoke local -f webhook ./intents/hola.json 
 ```
 
 ## Docmentation
