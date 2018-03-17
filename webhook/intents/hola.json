@@ -1,0 +1,30 @@
+ {
+    "body": {
+        "responseId": "5e654d6f-d7b8-4abc-81b8-da15862e0b84",
+        "queryResult": {
+            "queryText": "hola",
+            "action": "smalltalk.greetings.hello",
+            "parameters": {},
+            "allRequiredParamsPresent": true,
+            "fulfillmentText": "Hola!",
+            "fulfillmentMessages": [
+                {
+                    "text": {
+                        "text": [
+                            "Hola!"
+                        ]
+                    }
+                }
+            ],
+            "intent": {
+                "name": "projects/newagent-91a6d/agent/intents/75e6d4e4-d79e-4d3a-b7dc-b1d4a1cd2ead",
+                "displayName": "smalltalk.greetings.hello"
+            },
+            "intentDetectionConfidence": 1,
+            "diagnosticInfo": {},
+            "languageCode": "es"
+        },
+        "originalDetectIntentRequest": {},
+        "session": "projects/newagent-91a6d/agent/sessions/2ec9f8c0-afcc-4d3c-ad23-92614c4e0978"
+    }
+}
