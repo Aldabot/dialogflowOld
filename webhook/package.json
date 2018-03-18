@@ -2,7 +2,8 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "dotenv": "^5.0.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "utf8": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
