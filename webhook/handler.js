@@ -5,6 +5,7 @@ console.log("Starting");
 // import dotenv from 'dotenv';
 const dotenv = require('dotenv');
 const lenders = require('./lenders');
+const utf8 = require('utf8');
 
 // export const index = (event, context, callback) => {
 exports.index = (event, context, callback) => {
@@ -24,7 +25,7 @@ function processV2Request(body, callback) {
     let action = (body.queryResult.action) ? body.queryResult.action : 'default';
     // Parameters are any entities that Dialogflow has extracted from the request.
     let parameters = body.queryResult.parameters || {}; // https://dialogflow.com/docs/actions-and-parameters
-    let amount = body.queryResult.parameters.Amount.number;
+    let amount = (body.queryResult.parameters.Amount.number) ? body.queryResult.parameters.Amount.number :  0;
     // Contexts are objects used to track and store conversation state
     let inputContexts = body.queryResult.contexts; // https://dialogflow.com/docs/contexts
     // Get the request source (Google Assistant, Slack, API, etc)
