@@ -25,7 +25,6 @@ function processV2Request(body, callback) {
     let action = (body.queryResult.action) ? body.queryResult.action : 'default';
     // Parameters are any entities that Dialogflow has extracted from the request.
     let parameters = body.queryResult.parameters || {}; // https://dialogflow.com/docs/actions-and-parameters
-    let amount = (body.queryResult.parameters.Amount.number) ? body.queryResult.parameters.Amount.number :  0;
     // Contexts are objects used to track and store conversation state
     let inputContexts = body.queryResult.contexts; // https://dialogflow.com/docs/contexts
     // Get the request source (Google Assistant, Slack, API, etc)
@@ -45,12 +44,37 @@ function processV2Request(body, callback) {
             sendResponse('I\'m having trouble, can you try that again?', callback); // Send simple response to user
         },
         'alda.loan.application': (callback) => {
-            let responseToUser = {
-                    fulfillmentMessages: richResponsesV2, // Optional, uncomment to enable
+            let amount = body.queryResult.parameters.Amount.number;
+            let responseToUser =  {};
+            console.log(amount)
+            if (amount<=300) {
+                console.log('loan.application.opt1')
+                let responseToUser = {
+                    fulfillmentMessages: LoansUnder300richResponsesV2,
                     //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
-                    fulfillmentText: 'This is from Dialogflow' // displayed response
+                    fulfillmentText: 'This is from Dialogflow'
+                };
+                sendResponse(responseToUser, callback);
+            } else if (amount<=1000) {
+                console.log('loan.application.opt2')
+                let responseToUser = {
+                    fulfillmentMessages: LoansUnder50000richResponsesV2,
+                    //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
+                    fulfillmentText: 'This is from Dialogflow'
+                };
+                sendResponse(responseToUser, callback);
+            } else if (amount<=50000) {
+                console.log('loan.application.opt3')
+                let responseToUser = {
+                    fulfillmentMessages: LoansUnder50000richResponsesV2,
+                    //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
+                    fulfillmentText: 'This is from Dialogflow'
+                };
+                sendResponse(responseToUser, callback);
+            } else {
+                let responseToUser = 'Para pedir ese importe necesitas garantia hipotecaria'
+                sendResponse(responseToUser, callback);
             };
-            sendResponse(responseToUser, callback);
         },
         // Default handler for unknown or undefined actions
         'default': (callback) => {
@@ -93,7 +117,7 @@ function processV2Request(body, callback) {
     }
 }
 
-const richResponsesV2 = [
+const LoansUnder300richResponsesV2 = [
     {
         'platform': 'FACEBOOK',
         'card': lenders.WongaRichResponseV2Card
@@ -106,7 +130,18 @@ const richResponsesV2 = [
         'platform': 'FACEBOOK',
         'card': lenders.QueBuenoRichResponseV2Card
     }
-]; 
+];
+
+const LoansUnder50000richResponsesV2 = [
+    {
+        'platform': 'FACEBOOK',
+        'card': lenders.CetelemRichResponseV2Card
+    },
+    {
+        'platform': 'FACEBOOK',
+        'card': lenders.CofidisRichResponseV2Card
+    }
+];
 
 const respondOK = (callback, body) => {
     const response = { statusCode: 200, body };
