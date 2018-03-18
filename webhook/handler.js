@@ -1,15 +1,19 @@
 'use strict';
 
-import dotenv from 'dotenv';
+console.log("Starting");
 
-export const index = (event, context, callback) => {
-    // console.log(JSON.stringify(JSON.parse(event.body), null, 4));
+// import dotenv from 'dotenv';
+const dotenv = require('dotenv');
+
+// export const index = (event, context, callback) => {
+exports.index = (event, context, callback) => {
+    
+    //c onsole.log(JSON.stringify(JSON.parse(event.body), null, 4));
 
     let body = process.env.IS_LOCAL ? event.body : JSON.parse(event.body);
 
     processV2Request(body, callback);
 };
-
 
 /*
 * Function to handle v2 webhook requests from Dialogflow
