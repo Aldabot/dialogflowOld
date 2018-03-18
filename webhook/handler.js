@@ -4,11 +4,12 @@ console.log("Starting");
 
 // import dotenv from 'dotenv';
 const dotenv = require('dotenv');
+const lenders = require('./lenders');
 
 // export const index = (event, context, callback) => {
 exports.index = (event, context, callback) => {
     
-    //c onsole.log(JSON.stringify(JSON.parse(event.body), null, 4));
+    console.log(JSON.stringify(JSON.parse(event.body), null, 4));
 
     let body = process.env.IS_LOCAL ? event.body : JSON.parse(event.body);
 
@@ -23,6 +24,7 @@ function processV2Request(body, callback) {
     let action = (body.queryResult.action) ? body.queryResult.action : 'default';
     // Parameters are any entities that Dialogflow has extracted from the request.
     let parameters = body.queryResult.parameters || {}; // https://dialogflow.com/docs/actions-and-parameters
+    let amount = body.queryResult.parameters.Amount.number;
     // Contexts are objects used to track and store conversation state
     let inputContexts = body.queryResult.contexts; // https://dialogflow.com/docs/contexts
     // Get the request source (Google Assistant, Slack, API, etc)
@@ -33,7 +35,7 @@ function processV2Request(body, callback) {
     // Create handlers for Dialogflow actions as well as a 'default' handler
     const actionHandlers = {
         // The default welcome intent has been matched, welcome the user (https://dialogflow.com/docs/events#default_welcome_intent)
-        'input.welcome': (callback) => {
+        'smalltalk.greetings.hello': (callback) => {
             sendResponse('Hello, Welcome to my Dialogflow agent!', callback); // Send simple response to user
         },
         // The default fallback intent has been matched, try to recover (https://dialogflow.com/docs/intents#fallback_intents)
@@ -41,14 +43,17 @@ function processV2Request(body, callback) {
             // Use the Actions on Google lib to respond to Google requests; for other requests use JSON
             sendResponse('I\'m having trouble, can you try that again?', callback); // Send simple response to user
         },
-        // Default handler for unknown or undefined actions
-        'default': (callback) => {
+        'alda.loan.application': (callback) => {
             let responseToUser = {
-                fulfillmentMessages: richResponsesV2, // Optional, uncomment to enable
-                //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
-                fulfillmentText: 'This is from Dialogflow\'s Cloud Functions for Firebase editor! :-)' // displayed response
+                    fulfillmentMessages: richResponsesV2, // Optional, uncomment to enable
+                    //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
+                    fulfillmentText: 'This is from Dialogflow' // displayed response
             };
             sendResponse(responseToUser, callback);
+        },
+        // Default handler for unknown or undefined actions
+        'default': (callback) => {
+            sendResponse('I\'m having trouble, can you try that again?', callback); // Send simple response to user
         }
     };
 
@@ -87,24 +92,20 @@ function processV2Request(body, callback) {
     }
 }
 
-const richResponseV2Card = {
-    'title': 'Title: this is a title',
-    'subtitle': 'This is an subtitle.  Text can include unicode characters including emoji 📱.',
-    'imageUri': 'https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png',
-    'buttons': [
-        {
-            'text': 'This is a button',
-            'postback': 'https://assistant.google.com/'
-        }
-    ]
-};
-
 const richResponsesV2 = [
     {
         'platform': 'FACEBOOK',
-        'card': richResponseV2Card
+        'card': lenders.WongaRichResponseV2Card
+    },
+    {
+        'platform': 'FACEBOOK',
+        'card': lenders.VivusRichResponseV2Card
+    },
+    {
+        'platform': 'FACEBOOK',
+        'card': lenders.QueBuenoRichResponseV2Card
     }
-];
+]; 
 
 const respondOK = (callback, body) => {
     const response = { statusCode: 200, body };
