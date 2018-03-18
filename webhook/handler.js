@@ -48,7 +48,7 @@ function processV2Request(body, callback) {
             let responseToUser =  {};
             console.log(amount)
             if (amount<=300) {
-                console.log('loan.application.opt1')
+                console.log('loan.application.300')
                 let responseToUser = {
                     fulfillmentMessages: LoansUnder300richResponsesV2,
                     //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
@@ -56,7 +56,7 @@ function processV2Request(body, callback) {
                 };
                 sendResponse(responseToUser, callback);
             } else if (amount<=1000) {
-                console.log('loan.application.opt2')
+                console.log('loan.application.1000')
                 let responseToUser = {
                     fulfillmentMessages: LoansUnder50000richResponsesV2,
                     //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
@@ -64,7 +64,7 @@ function processV2Request(body, callback) {
                 };
                 sendResponse(responseToUser, callback);
             } else if (amount<=50000) {
-                console.log('loan.application.opt3')
+                console.log('loan.application.o50000')
                 let responseToUser = {
                     fulfillmentMessages: LoansUnder50000richResponsesV2,
                     //outputContexts: [{ 'name': `${session}/contexts/weather`, 'lifespanCount': 2, 'parameters': {'city': 'Rome'} }], // Optional, uncomment to enable
@@ -118,6 +118,12 @@ function processV2Request(body, callback) {
 }
 
 const LoansUnder300richResponsesV2 = [
+    /*{
+        'platform': 'FACEBOOK',
+        'text': {"text": [
+            'Aqui tienes las 3 mejores opciones para conseguir ' + amount + ' euros'
+          ]}
+    },*/
     {
         'platform': 'FACEBOOK',
         'card': lenders.WongaRichResponseV2Card
@@ -129,6 +135,15 @@ const LoansUnder300richResponsesV2 = [
     {
         'platform': 'FACEBOOK',
         'card': lenders.QueBuenoRichResponseV2Card
+    },
+    {
+        'platform': 'FACEBOOK',
+        'quickReplies': {
+            'title': 'Gracias',
+            "quickReplies": [
+                'Gracias Alda!'
+            ],
+          }
     }
 ];
 
