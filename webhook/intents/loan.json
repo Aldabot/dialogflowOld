@@ -1,0 +1,66 @@
+{    
+    "body": {
+        "responseId": "62fd7b5b-6b2e-4b28-abc9-9f4b9fa54005",
+        "queryResult": {
+            "queryText": "prestamo",
+            "action": "alda.loan.application",
+            "parameters": {
+                "Amount": "",
+                "number": "",
+                "date-period": ""
+            },
+            "allRequiredParamsPresent": true,
+            "fulfillmentMessages": [
+                {
+                    "text": {
+                        "text": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+            "outputContexts": [
+                {
+                    "name": "projects/newagent-91a6d/agent/sessions/41315d19-c903-4c60-80f0-f12416ca8403/contexts/generic",
+                    "lifespanCount": 4,
+                    "parameters": {
+                        "number": "",
+                        "Amount": "",
+                        "Amount.original": "",
+                        "date-period.original": "",
+                        "number.original": "",
+                        "facebook_sender_id": "2049447858402638",
+                        "date-period": ""
+                    }
+                }
+            ],
+            "intent": {
+                "name": "projects/newagent-91a6d/agent/intents/d964b3b8-2f5b-4646-a86b-9294905aadcc",
+                "displayName": "alda.loan.application"
+            },
+            "intentDetectionConfidence": 1,
+            "diagnosticInfo": {},
+            "languageCode": "es"
+        },
+        "originalDetectIntentRequest": {
+            "payload": {
+                "data": {
+                    "sender": {
+                        "id": "2049447858402638"
+                    },
+                    "recipient": {
+                        "id": "379164972494173"
+                    },
+                    "message": {
+                        "mid": "mid.$cAAFY2Wu7IFBoazp78liOfUzqiYHo",
+                        "text": "prestamo",
+                        "seq": 37452
+                    },
+                    "timestamp": 1521390793714
+                },
+                "source": "facebook"
+            }
+        },
+        "session": "projects/newagent-91a6d/agent/sessions/41315d19-c903-4c60-80f0-f12416ca8403"
+    }
+}
