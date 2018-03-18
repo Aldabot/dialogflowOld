@@ -7,8 +7,10 @@ yarn install
 
 ## Testing
 ```
-mac: serverless invoke local -f webhook ./intents/hola.json
-ubuntu: serverless invoke local -f webhook -p ./intents/hola.json
+mac: serverless invoke local -f webhook ./intents/hello.json
+ubuntu: $ export SLS_DEBUG=true
+ubuntu: $ serverless invoke local -f webhook -p ./intents/hello.json
+ubuntu: $ serverless invoke local -f webhook -p ./intents/loan.json
 
 ```
 
