@@ -106,7 +106,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/Dialogflow/dev/1523112058666-2018-04-07T14:40:58.666Z/Dialogflow.zip"
+                "S3Key": "serverless/Dialogflow/dev/1523117438520-2018-04-07T16:10:38.520Z/Dialogflow.zip"
               },
               "FunctionName": "Dialogflow-dev-webhook",
               "Handler": "handler.index",
@@ -125,14 +125,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "WebhookLambdaVersionX5mrzA3zl5Dar51A6SeXGWVZAx493Kyie7eY4": {
+          "WebhookLambdaVersionaddlkc1gw2NfsC94rsH2ZEX27zPsE1Xzh4z8cPmpz0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WebhookLambdaFunction"
               },
-              "CodeSha256": "ia9CDFLW0d2PXTQvAXCDug02zym4KezEYyfhAVfhvd8="
+              "CodeSha256": "hWvQz0chNS0GbKLm0UXoAcuZmUmNbwZCDeRjmynYQ2E="
             }
           },
           "ApiGatewayRestApi": {
@@ -246,7 +246,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1523112058675": {
+          "ApiGatewayDeployment1523117438530": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -301,7 +301,7 @@
           "WebhookLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WebhookLambdaVersionX5mrzA3zl5Dar51A6SeXGWVZAx493Kyie7eY4"
+              "Ref": "WebhookLambdaVersionaddlkc1gw2NfsC94rsH2ZEX27zPsE1Xzh4z8cPmpz0"
             }
           },
           "ServiceEndpoint": {
@@ -382,7 +382,7 @@
     }
   },
   "package": {
-    "artifactDirectoryName": "serverless/Dialogflow/dev/1523112058666-2018-04-07T14:40:58.666Z",
+    "artifactDirectoryName": "serverless/Dialogflow/dev/1523117438520-2018-04-07T16:10:38.520Z",
     "artifact": ""
   }
 }

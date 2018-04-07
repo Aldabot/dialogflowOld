@@ -1,0 +1,44 @@
+{
+    "body": {
+        "id": "2e2eeca8-847c-47aa-9408-b29f0bb8efbb",
+        "timestamp": "2018-04-07T14:23:40.59Z",
+        "lang": "es",
+        "result": {
+            "source": "agent",
+            "resolvedQuery": "1000",
+            "speech": "",
+            "action": "aldafinancinglenders.aldafinancinglenders-selectnumber",
+            "actionIncomplete": false,
+            "parameters": {
+                "amount": "1000"
+            },
+            "contexts": [
+                {
+                    "name": "aldafinancinglenders-followup",
+                    "parameters": {
+                        "amount": "1000",
+                        "amount.original": "1000"
+                    },
+                    "lifespan": 1
+                }
+            ],
+            "metadata": {
+                "intentId": "a3503b50-cf71-42bf-8074-caf7270e5a2f",
+                "webhookUsed": "true",
+                "webhookForSlotFillingUsed": "false",
+                "intentName": "alda.financing.lenders - select.amount"
+            },
+            "fulfillment": {
+                "speech": "",
+                "messages": []
+            },
+            "score": 1
+        },
+        "status": {
+            "code": 200,
+            "errorType": "success",
+            "webhookTimedOut": false
+        },
+        "sessionId": "1"
+    }
+}
