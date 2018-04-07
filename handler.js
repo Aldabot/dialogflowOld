@@ -25,6 +25,17 @@ class DialogflowV1 {
         });
     }
 
+    addCard(title, subtitle, imageUrl, buttons) {
+        this.response.messages.push({
+            buttons,
+            imageUrl,
+            platform: this.platform,
+            subtitle,
+            title,
+            type: 1
+        });
+    }
+
     // https://dialogflow.com/docs/reference/agent/message-objects
     addQuickReplies(title, quickReplies) {
         this.response.messages.push({
@@ -57,6 +68,10 @@ export const index = (event, context, callback) => {
     agent.addTextMessage('lol');
     agent.addTextMessage('non');
     agent.addQuickReplies('title', ['lol', 'ok', 'nice']);
+    agent.addCard('title', 'subtitle', 'https://www.w3schools.com/howto/img_forest.jpg', [{
+        postback: 'lol',
+        text: 'ok'
+    }]);
 
     const response = {
         statusCode: 200,
