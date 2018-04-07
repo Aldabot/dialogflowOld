@@ -1,17 +1,19 @@
 {
-  "dependencies": {
-    "bluebird": "^3.5.1",
-    "dotenv": "^5.0.0",
-    "mysql": "^2.15.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "copy-webpack-plugin": "^4.3.1",
-    "serverless-webpack": "^4.2.0",
-    "webpack": "^3.10.0"
-  }
+    "dependencies": {
+        "bluebird": "^3.5.1",
+        "dialogflow-fulfillment": "https://github.com/dialogflow/dialogflow-fulfillment-nodejs",
+        "dotenv": "^5.0.0",
+        "mysql": "^2.15.0",
+        "serverless": "^1.26.1"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "copy-webpack-plugin": "^4.3.1",
+        "serverless-webpack": "^4.2.0",
+        "webpack": "^3.10.0"
+    }
 }
