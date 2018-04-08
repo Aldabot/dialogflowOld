@@ -13,6 +13,7 @@ class DialogflowV1 {
         };
 
         this.addTextMessage = this.addTextMessage.bind(this);
+        this.removeFirstTextMessage = this.removeFirstTextMessage.bind(this);
         this.addQuickReplies = this.addQuickReplies.bind(this);
         this.getResponse = this.getResponse.bind(this);
     }
@@ -24,6 +25,9 @@ class DialogflowV1 {
             speech: text,
             type: 0
         });
+    }
+    removeFirstTextMessage() {
+        this.response.messages.shift();
     }
 
     addCard(title, subtitle, imageUrl, buttons) {
@@ -56,45 +60,79 @@ const lenders = [
     {
         name: 'Cetelem',
         minAmount: 3000,
-        maxAmount: 50000
+        maxAmount: 50000,
+        url: '[Cetelem](https://www.cetelem.es/)'
     }, {
         name: 'Cofidis',
         minAmount: 4000,
-        maxAmount: 50000
+        maxAmount: 50000,
+        url: '[Confidis](https://www.cofidis.es/)'
     }, {
         name: 'Creditea',
         minAmount: 100,
-        maxAmount: 3000
+        maxAmount: 3000,
+        url: '[Creditea](https://creditea.com/)'
     }, {
         name: 'Quebueno',
         minAmount: 50,
-        maxAmount: 300
+        maxAmount: 300,
+        url: '[Quebueno](https://www.quebueno.es/)'
     }, {
         name: 'Solcredito',
         minAmount: 100,
-        maxAmount: 1000
+        maxAmount: 1000,
+        url: '[Solcredito](https://www.solcredito.es/)'
     }, {
         name: 'Vivus',
         minAmount: 50,
-        maxAmount: 300
+        maxAmount: 300,
+        url: '[Vivus](https://www.vivus.es/)'
     }, {
         name: 'Wonga',
         minAmount: 50,
-        maxAmount: 300
+        maxAmount: 300,
+        url: '[Wonga](https://www.wonga.es/)'
     }, {
         name: 'Younited',
         minAmount: 1000,
-        maxAmount: 40000
+        maxAmount: 40000,
+        url: '[Younited](https://es.younited-credit.com/)'
     },
-]
+];
 
 
 function aldaFinancingPrestamo(agent) {
     const amount = agent.contexts[0].parameters.amount;
+    let foundLender = false;
+    let totalMinAmount;
+    let totalMaxAmount;
+    agent.addTextMessage(`Perfecto, a continuación te muestro los mejores préstamos que ofrecen ${amount}€`);
+
     for (const lender of lenders) {
-        const { name, minAmount, maxAmount } = lender;
-        if(minAmount <= amount && amount <= maxAmount) {
-            agent.addTextMessage(name);
+        const { name, minAmount, maxAmount, url } = lender;
+        if (minAmount <= amount && amount <= maxAmount) {
+            foundLender = true;
+            agent.addCard(name, 'subtitle', 'https://www.w3schools.com/howto/img_forest.jpg', [{
+                postback: 'url',
+                text: url
+            }]);
+        }
+        if (typeof totalMinAmount === 'undefined' || totalMinAmount > minAmount) {
+            totalMinAmount = minAmount;
+        }
+        if (typeof totalMaxAmount === 'undefined' || totalMaxAmount < maxAmount) {
+            totalMaxAmount = maxAmount;
+        }
+    }
+
+    if (!foundLender) {
+        agent.removeFirstTextMessage();
+        agent.addTextMessage(`Por ${amount} € no he encontrado un prestamista 😔`);
+        if (amount < totalMinAmount) {
+            agent.addQuickReplies(`Tendrias que pedir por lo minimum:`, [`${totalMinAmount}€`]);
+        }
+        if (amount > totalMaxAmount) {
+            agent.addQuickReplies(`Tendrias que pedir menos que:`, [`${totalMaxAmount}€`]);
         }
     }
 }

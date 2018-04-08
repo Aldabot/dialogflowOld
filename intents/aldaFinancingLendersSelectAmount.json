@@ -5,7 +5,7 @@
         "lang": "es",
         "result": {
             "source": "agent",
-            "resolvedQuery": "1000",
+            "resolvedQuery": "10",
             "speech": "",
             "action": "aldafinancinglenders.aldafinancinglenders-selectnumber",
             "actionIncomplete": false,
