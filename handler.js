@@ -61,42 +61,50 @@ const lenders = [
         name: 'Cetelem',
         minAmount: 3000,
         maxAmount: 50000,
-        url: '[Cetelem](https://www.cetelem.es/)'
+        url: '[Cetelem](https://www.cetelem.es/)',
+        imgUrl: 'https://www.cetelem.es/documents/34437/103701/mr_credito.png/f85e937c-c1e1-24f5-498c-d54b0741a33a?t=1493977286630'
     }, {
         name: 'Cofidis',
         minAmount: 4000,
         maxAmount: 50000,
-        url: '[Confidis](https://www.cofidis.es/)'
+        url: '[Confidis](https://www.cofidis.es/)',
+        imgUrl: 'https://logos-download.com/wp-content/uploads/2016/08/Cofidis_logo.png'
     }, {
         name: 'Creditea',
         minAmount: 100,
         maxAmount: 3000,
-        url: '[Creditea](https://creditea.com/)'
+        url: '[Creditea](https://creditea.com/)',
+        imgUrl: 'https://www.portalprestamos.es/wp-content/uploads/2016/09/creditea5.png'
     }, {
         name: 'Quebueno',
         minAmount: 50,
         maxAmount: 300,
-        url: '[Quebueno](https://www.quebueno.es/)'
+        url: '[Quebueno](https://www.quebueno.es/)',
+        imgUrl: 'http://www.agenciasdecomunicacion.org/wp-content/uploads/quebueno-hr-shadow.png'
     }, {
         name: 'Solcredito',
         minAmount: 100,
         maxAmount: 1000,
-        url: '[Solcredito](https://www.solcredito.es/)'
+        url: '[Solcredito](https://www.solcredito.es/)',
+        imgUrl: 'https://www.busconomico.com/images/logo/logo-solcredito.png'
     }, {
         name: 'Vivus',
         minAmount: 50,
         maxAmount: 300,
-        url: '[Vivus](https://www.vivus.es/)'
+        url: '[Vivus](https://www.vivus.es/)',
+        imgUrl: 'http://prestamondo.es/wp-content/uploads/thumbs_dir/vivus300-n9g0fqo4l4ve2if7ga5lx3t69urs2e76iyiiz33ekm.png'
     }, {
         name: 'Wonga',
         minAmount: 50,
         maxAmount: 300,
-        url: '[Wonga](https://www.wonga.es/)'
+        url: '[Wonga](https://www.wonga.es/)',
+        imgUrl: 'https://www.underconsideration.com/brandnew/archives/wonga_logo_detail.png'
     }, {
         name: 'Younited',
         minAmount: 1000,
         maxAmount: 40000,
-        url: '[Younited](https://es.younited-credit.com/)'
+        url: '[Younited](https://es.younited-credit.com/)',
+        imgUrl: 'https://www.investitin.com/wp-content/uploads/2017/04/logo_younited-1.png'
     },
 ];
 
@@ -109,10 +117,10 @@ function aldaFinancingPrestamo(agent) {
     agent.addTextMessage(`Perfecto, a continuación te muestro los mejores préstamos que ofrecen ${amount}€`);
 
     for (const lender of lenders) {
-        const { name, minAmount, maxAmount, url } = lender;
+        const { name, minAmount, maxAmount, url, imgUrl } = lender;
         if (minAmount <= amount && amount <= maxAmount) {
             foundLender = true;
-            agent.addCard(name, 'subtitle', 'https://www.w3schools.com/howto/img_forest.jpg', [{
+            agent.addCard(name, 'subtitle', imgUrl, [{
                 postback: 'url',
                 text: url
             }]);
