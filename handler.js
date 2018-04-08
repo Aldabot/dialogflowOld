@@ -105,7 +105,7 @@ const lenders = [
         maxAmount: 40000,
         url: '[Younited](https://es.younited-credit.com/)',
         imgUrl: 'https://www.investitin.com/wp-content/uploads/2017/04/logo_younited-1.png'
-    },
+    }
 ];
 
 
@@ -118,9 +118,15 @@ function aldaFinancingPrestamo(agent) {
 
     for (const lender of lenders) {
         const { name, minAmount, maxAmount, url, imgUrl } = lender;
+        const description = `| Propiedad | Valor |
+| ------ | ----------- |
+| Cuota desde: | ${minAmount}€ |
+| TAE: | 6.12% - 17.11% |
+| Duracion: | 30 - 60 dias |`;
+
         if (minAmount <= amount && amount <= maxAmount) {
             foundLender = true;
-            agent.addCard(name, 'subtitle', imgUrl, [{
+            agent.addCard(name, description, imgUrl, [{
                 postback: 'url',
                 text: url
             }]);
