@@ -1,9 +1,17 @@
 'use strict';
+import i18n from 'i18n';
+i18n.configure({
+    directory: './locales',
+    register: global
+});
+i18n.setLocale('es');
+console.log(__('Send'));
 
 class DialogflowV1 {
     constructor(req) {
         this.platform = 'facebook';
 
+        this.language = req.lang;
         this.parameters = req.result.parameters;
 
         this.response = {

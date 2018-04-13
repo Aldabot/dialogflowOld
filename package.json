@@ -3,6 +3,7 @@
         "bluebird": "^3.5.1",
         "dialogflow-fulfillment": "https://github.com/dialogflow/dialogflow-fulfillment-nodejs",
         "dotenv": "^5.0.0",
+        "i18n": "^0.8.3",
         "mysql": "^2.15.0",
         "serverless": "^1.26.1"
     },
@@ -12,7 +13,7 @@
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.6.1",
-        "copy-webpack-plugin": "^4.3.1",
+        "copy-webpack-plugin": "^4.5.1",
         "serverless-webpack": "^4.2.0",
         "webpack": "^3.10.0"
     }
