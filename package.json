@@ -7,6 +7,10 @@
         "mysql": "^2.15.0",
         "serverless": "^1.26.1"
     },
+    "scripts": {
+        "invoke": "serverless invoke local -f webhook -p ./intents/aldaFinancingLendersSelectAmount.json --watch",
+        "deploy": "serverless deploy -v"
+    },
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
