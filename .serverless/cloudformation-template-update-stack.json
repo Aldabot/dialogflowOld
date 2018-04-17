@@ -92,7 +92,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/Dialogflow/dev/1523621216978-2018-04-13T12:06:56.978Z/Dialogflow.zip"
+          "S3Key": "serverless/Dialogflow/dev/1523969932870-2018-04-17T12:58:52.870Z/Dialogflow.zip"
         },
         "FunctionName": "Dialogflow-dev-webhook",
         "Handler": "handler.index",
@@ -111,14 +111,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "WebhookLambdaVersionwqWCW3mquNpjtR68i3sdalA1NcVxo7UAWY0o0Z5Etk": {
+    "WebhookLambdaVersionizi05SzQCdGuKnQzalnn38ZfXskIgHJ3xq8LVM8bE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WebhookLambdaFunction"
         },
-        "CodeSha256": "69sVUrbq+/vJYGV+k98h6RnmVmDbTCt6vEZt5z4Ahio="
+        "CodeSha256": "y9L1wZnxIy9unBPh3JwobKnubA9zt8uefFf004D6ry4="
       }
     },
     "ApiGatewayRestApi": {
@@ -232,7 +232,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1523621216989": {
+    "ApiGatewayDeployment1523969932879": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -287,7 +287,7 @@
     "WebhookLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WebhookLambdaVersionwqWCW3mquNpjtR68i3sdalA1NcVxo7UAWY0o0Z5Etk"
+        "Ref": "WebhookLambdaVersionizi05SzQCdGuKnQzalnn38ZfXskIgHJ3xq8LVM8bE"
       }
     },
     "ServiceEndpoint": {

@@ -1,0 +1,44 @@
+{
+    "body": {
+        "id": "2dac930e-be18-44aa-b711-1b00444df2d5",
+        "timestamp": "2018-04-17T11:58:33.007Z",
+        "lang": "es",
+        "result": {
+            "source": "agent",
+            "resolvedQuery": "Incertidumbre",
+            "speech": "",
+            "action": "investing.investing-amount-custom",
+            "actionIncomplete": false,
+            "parameters": {},
+            "contexts": [
+                {
+                    "name": "investing-followup",
+                    "parameters": {
+                        "amount": "1000",
+                        "riskimeter.original": "",
+                        "amount.original": "1000",
+                        "riskimeter": -2
+                    },
+                    "lifespan": 1
+                }
+            ],
+            "metadata": {
+                "intentId": "9ca7dac9-5f77-4a7f-884b-865c465c3fb1",
+                "webhookUsed": "true",
+                "webhookForSlotFillingUsed": "false",
+                "intentName": "investing - result"
+            },
+            "fulfillment": {
+                "speech": "",
+                "messages": []
+            },
+            "score": 1
+        },
+        "status": {
+            "code": 200,
+            "errorType": "success",
+            "webhookTimedOut": false
+        },
+        "sessionId": "39a38c90-6625-4b05-bf1d-e78f52d0dd3f"
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "body": {
+        "id": "fe54ae4b-1e81-4070-9848-84e6cc3a2480",
+        "timestamp": "2018-04-17T08:38:02.208Z",
+        "lang": "es",
+        "result": {
+            "source": "agent",
+            "resolvedQuery": "1000",
+            "speech": "",
+            "action": "investing",
+            "actionIncomplete": false,
+            "parameters": {
+                "amount": 1000,
+                "riskimeter": "0"
+            },
+            "contexts": [
+                {
+                    "name": "investing-followup",
+                    "parameters": {
+                        "amount": 1000,
+                        "riskimeter.original": "",
+                        "amount.original": "1000",
+                        "riskimeter": "0"
+                    },
+                    "lifespan": 2
+                }
+            ],
+            "metadata": {
+                "intentId": "067e3fd0-b5d1-453f-adb0-20bf5a9d1a8e",
+                "webhookUsed": "true",
+                "webhookForSlotFillingUsed": "false",
+                "intentName": "investing - amount"
+            },
+            "fulfillment": {
+                "speech": "",
+                "messages": [
+                    {
+                        "type": 2,
+                        "platform": "facebook",
+                        "title": "¿Qué rentabilidad buscas para tu cartera de inversión?",
+                        "replies": [
+                            "No me importa.",
+                            "1-2% anual.",
+                            "3-4% anual.",
+                            "5-6% anual.",
+                            "La máxima!"
+                        ]
+                    }
+                ]
+            },
+            "score": 1
+        },
+        "status": {
+            "code": 200,
+            "errorType": "success",
+            "webhookTimedOut": false
+        },
+        "sessionId": "f31ebaec-e72f-4fdf-8b39-91d3d5145a60"
+    }
+}
