@@ -574,12 +574,12 @@ function addInvestDictMesssages(agent, option) {
     }
 }
 
-function investingAddQ1(agent) {
+function addQ1(agent) {
     agent.addQuickReplies('¿Qué rentabilidad buscas para tu cartera de inversión?', [
         'No me importa.', '1-2% anual.', '3-4% anual.', '5-6% anual.', 'La máxima!'
     ]);
 }
-function investingAddQ1Riskimeter(agent) {
+function addQ1Riskimeter(agent) {
     let riskimeter = 0;
     switch(agent.inputMessage) {
     case 'No me importa.': riskimeter = -2; break;
@@ -590,12 +590,12 @@ function investingAddQ1Riskimeter(agent) {
     }
     agent.addRiskimeter(riskimeter);
 }
-function investingAddQ2(agent) {
+function addQ2(agent) {
     agent.addQuickReplies('El mercado de valores global es a menudo volátil. Imagina que tu cartera de inversiones pierde un 10% de su valor en un mes, ¿qué harías?', [
         'Vender todo', 'Vender algo', 'Mantener', 'Comprar más'
     ]);
 }
-function investingAddQ2Riskimeter(agent) {
+function addQ2Riskimeter(agent) {
     let riskimeter = 0;
     switch(agent.inputMessage) {
     case 'Vender todo': riskimeter = -2; break;
@@ -605,10 +605,102 @@ function investingAddQ2Riskimeter(agent) {
     }
     agent.addRiskimeter(riskimeter);
 }
-function investingAddQ3(agent) {
+function addQ3(agent) {
     agent.addQuickReplies('Si piensas en la palabra "riesgo", ¿cuál de las siguientes palabras te viene a la mente?', [
         'Pérdida', 'Incertidumbre', 'Oportunidad', 'Emoción'
     ]);
+}
+function addQ3Riskimeter(agent) {
+    let riskimeter = 0;
+    switch(agent.inputMessage) {
+    case 'Pérdida': riskimeter = -2; break;
+    case 'Incertidumbre': riskimeter = -1; break;
+    case 'Oportunidad': riskimeter = 1; break;
+    case 'Emoción': riskimeter = 2; break;
+    }
+}
+function addQ4(agent) {
+    agent.addQuickReplies('En el pasado, ¿has invertido en acciones o fondos de inversión?', [
+        'Si', 'No'
+    ]);
+}
+function addQ4Riskimeter(agent) {
+    let riskimeter = 0;
+    switch(agent.inputMessage) {
+    case 'Si': riskimeter = 0; break;
+    case 'No': riskimeter = -1; break;
+    }
+}
+function addQ8(agent) {
+    agent.addQuickReplies('¿Cómo de estables son tus ingresos actuales y futuros?', [
+        'Muy estables', 'Estables', 'Inestables', 'Muy inestables'
+    ]);
+}
+function addQ8Riskimeter(agent) {
+    let riskimeter = 0;
+    switch(agent.inputMessage) {
+    case "Muy estables": riskimeter = 2; break;
+    case "Estables": riskimeter = 1; break;
+    case "Inestabels": riskimeter = -1; break;
+    case "Muy inestables": riskimeter = 2; break;
+    }
+}
+function addQ9(agent) {
+    agent.addQuickReplies('¿Qué porcentaje de tus ingresos se van en gastos?', [
+        'Menos de 25%', '25%-50%', '50%-75%', 'Más que 75%'
+    ]);
+}
+function addQ9Riskimeter(agent) {
+    let riskimeter = 0;
+    switch(agent.inputMessage) {
+    case "Menos de 25%": riskimeter = 2; break;
+    case "25%-50%": riskimeter = 1; break;
+    case "50%-75%": riskimeter = -1; break;
+    case "Más que 75%"; riskimeter = -2; break;
+    }
+}
+function addQ10(agent) {
+    agent.addQuickReplies('¿Qué plazo te planteas para tu inversión con Indexa Capital?', [
+        'Menos de un año', 'Menos de dos años', 'Menos de cinco años', 'Menos de diez años', 'Más de diez años'
+    ]);
+}
+function addQ10Riskimeter(agent) {
+    let riskimeter = 0;
+    switch(agent.inputMessage) {
+    case "Menos de un año": riskimeter = -2; break;
+    case "Menos de dos años": riskimeter = -1; break;
+    case "Menos de cinco años": riskimeter = 0; break;
+    case "Menos de diez años": riskimeter = 1; break;
+    case "Más de diez años": riskimeter = 2; break;
+    }
+}
+
+
+function investingLogic(agent) {
+    switch(agent.intentName) {
+    case "investing - amount":
+        addQ1(agent);
+        break;
+    case "investing - question1":
+        addQ1Riskimeter(agent);
+        addQ2(agent);
+        break;
+    case "investing - question2":
+        addQ2Riskimeter(agent);
+        addQ3(agent);
+        break;
+    case "investing - question3":
+        addQ3Riskimeter(agent);
+        addQ4(agent);
+        break;
+    case "investing - question4":
+        addQ3Riskimeter(agent);
+        addQ4(agent);
+        break;
+    case "investing - result":
+        investingResult(agent);
+        break;
+    }
 }
 
 export function investingResult(agent) {
@@ -696,23 +788,5 @@ export function investingResult(agent) {
     }
 }
 
-function investingLogic(agent) {
-    switch(agent.intentName) {
-    case "investing - amount":
-        investingAddQ1(agent);
-        break;
-    case "investing - question1":
-        investingAddQ1Riskimeter(agent);
-        investingAddQ2(agent);
-        break;
-    case "investing - question2":
-        investingAddQ2Riskimeter(agent);
-        investingAddQ3(agent);
-        break;
-    case "investing - result":
-        investingResult(agent);
-        break;
-    }
-}
 
 export default investingLogic;

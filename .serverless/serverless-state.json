@@ -106,7 +106,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/Dialogflow/dev/1524082916139-2018-04-18T20:21:56.139Z/Dialogflow.zip"
+                "S3Key": "serverless/Dialogflow/dev/1524083111242-2018-04-18T20:25:11.242Z/Dialogflow.zip"
               },
               "FunctionName": "Dialogflow-dev-webhook",
               "Handler": "handler.index",
@@ -125,14 +125,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "WebhookLambdaVersionN7kCcj0OXLC333EqOpdSIXDy103uBWsUyM3jM26CdQ": {
+          "WebhookLambdaVersionziv1Ap2nR1d4AZMvr7s8kSHWLq0gNR2r7DvgxpvZbQQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WebhookLambdaFunction"
               },
-              "CodeSha256": "DCKl0afi2iShGEKOhOls+dqSsHVcL/FOCAeid9g95k4="
+              "CodeSha256": "GxQXDoG75auoeUSiJJIOYhMhOXdOuRiYunGKtuRFWc4="
             }
           },
           "ApiGatewayRestApi": {
@@ -246,7 +246,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1524082916150": {
+          "ApiGatewayDeployment1524083111252": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -301,7 +301,7 @@
           "WebhookLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WebhookLambdaVersionN7kCcj0OXLC333EqOpdSIXDy103uBWsUyM3jM26CdQ"
+              "Ref": "WebhookLambdaVersionziv1Ap2nR1d4AZMvr7s8kSHWLq0gNR2r7DvgxpvZbQQ"
             }
           },
           "ServiceEndpoint": {
@@ -382,7 +382,7 @@
     }
   },
   "package": {
-    "artifactDirectoryName": "serverless/Dialogflow/dev/1524082916139-2018-04-18T20:21:56.139Z",
+    "artifactDirectoryName": "serverless/Dialogflow/dev/1524083111242-2018-04-18T20:25:11.242Z",
     "artifact": ""
   }
 }
