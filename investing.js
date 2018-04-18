@@ -697,7 +697,20 @@ function investingLogic(agent) {
         addQ3Riskimeter(agent);
         addQ4(agent);
         break;
+    case "investing - question8":
+        addQ4Riskimeter(agent);
+        addQ8(agent);
+        break;
+    case "investing - question9":
+        addQ8Riskimeter(agent);
+        addQ9(agent);
+        break;
+    case "investing - question10":
+        addQ9Riskimeter(agent);
+        addQ10(agent);
+        break;
     case "investing - result":
+        addQ10Riskimeter(agent);
         investingResult(agent);
         break;
     }
