@@ -23,6 +23,30 @@ const investDict = {
             percentage: 48
         }
     ],
+    C: [
+        {
+            assetClass: 'Bonos Globales a Largo Plazo',
+            investment: 'Vanguard Global Bnd Idx -Ins',
+            percentage: 54
+        },
+        {
+            assetClass: 'Acciones Globales',
+            investment: 'Vanguard Global Stk Idx Eur -Ins',
+            percentage: 46
+        }
+    ],
+    D: [
+        {
+            assetClass: 'Bonos Globales a Largo Plazo',
+            investment: 'Vanguard Global Bnd Idx -Ins',
+            percentage: 60
+        },
+        {
+            assetClass: 'Acciones Globales',
+            investment: 'Vanguard Global Stk Idx Eur -Ins',
+            percentage: 40
+        }
+    ],
     E: [
         {
             assetClass: 'Bonos Globales a Largo Plazo',
@@ -33,6 +57,158 @@ const investDict = {
             assetClass: 'Acciones Globales',
             investment: 'Vanguard Global Stk Idx Eur -Ins',
             percentage: 29
+        }
+    ],
+    F: [
+        {
+            assetClass: 'Bonos Globales a Largo Plazo',
+            investment: 'Vanguard Global Bnd Idx -Ins',
+            percentage: 81
+        },
+        {
+            assetClass: 'Acciones Globales',
+            investment: 'Vanguard Global Stk Idx Eur -Ins',
+            percentage: 19
+        }
+    ],
+    G: [
+        {
+            assetClass: 'Bonos Globales a Largo Plazo',
+            investment: 'Vanguard Global Bnd Idx -Ins',
+            percentage: 86
+        },
+        {
+            assetClass: 'Acciones Globales',
+            investment: 'Vanguard Global Stk Idx Eur -Ins',
+            percentage: 14
+        }
+    ],
+    H: [
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 33
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 23
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 15
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 13
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 11
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 5
+        }
+    ],
+    I: [
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 30
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 23
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 16
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 13
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 9
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 9
+        }
+    ],
+    J: [
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 26
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 22
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 21
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 12
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 11
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 8
+        },
+    ],
+    K: [
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 24
+        },
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 23
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 21
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 15
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 11
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 6
         }
     ],
     L: [
@@ -66,6 +242,233 @@ const investDict = {
             percentage: 4
         }
     ],
+    M: [
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 32
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 31
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 18
+        },
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 11
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 5
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 3
+        }
+    ],
+    N: [
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 35
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 35
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 16
+        },
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 10
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 4
+        },
+    ],
+    O: [
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 31
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 22
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 15
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 11
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 8
+        },
+        {
+            assetClass: 'Acciones Japón',
+            investment: 'Vanguard Japan Stk Idx Eur -Ins',
+            percentage: 6
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 4
+        },
+        {
+            assetClass: 'Bonos Países Emergentes Cubiertos a Euro',
+            investment: 'iShares EM Gov Bnd Idx -I2 Eur Hdg',
+            percentage: 3
+        }
+    ],
+    P: [
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 26
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 22
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 16
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 13
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 8
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 7
+        },
+        {
+            assetClass: 'Acciones Japón',
+            investment: 'Vanguard Japan Stk Idx Eur -Ins',
+            percentage: 5
+        },
+        {
+            assetClass: 'Bonos Países Emergentes Cubiertos a Euro',
+            investment: 'iShares EM Gov Bnd Idx -I2 Eur Hdg',
+            percentage: 3
+        }
+    ],
+    Q: [
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 24
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 21
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 21
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 11
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 10
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 6
+        },
+        {
+            assetClass: 'Acciones Japón',
+            investment: 'Vanguard Japan Stk Idx Eur -Ins',
+            percentage: 4
+        },
+        {
+            assetClass: 'Bonos Países Emergentes Cubiertos a Euro',
+            investment: 'iShares EM Gov Bnd Idx -I2 Eur Hdg',
+            percentage: 3
+        },
+    ],
+    R: [
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 24
+        },
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 21
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 20
+        },
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 14
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 9
+        },
+        {
+            assetClass: 'Acciones Economías Emergentes',
+            investment: 'Vanguard Emrg Mk Stk Idx -Ins',
+            percentage: 5
+        },
+        {
+            assetClass: 'Acciones Japón',
+            investment: 'Vanguard Japan Stk Idx Eur -Ins',
+            percentage: 4
+        },
+        {
+            assetClass: 'Bonos Países Emergentes Cubiertos a Euro',
+            investment: 'iShares EM Gov Bnd Idx -I2 Eur Hdg',
+            percentage: 3
+        },
+    ],
     S: [
         {
             assetClass: 'Bonos Gobiernos Europeos',
@@ -97,6 +500,70 @@ const investDict = {
             investment: '',
             percentage: 0
         },
+    ],
+    T: [
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 31
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 30
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 18
+        },
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 14
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 4
+        },
+        {
+            assetClass: 'Bonos Países Emergentes Cubiertos a Euro',
+            investment: 'iShares EM Gov Bnd Idx -I2 Eur Hdg',
+            percentage: 3
+        }
+    ],
+    U: [
+        {
+            assetClass: 'Bonos Empresas Europeas',
+            investment: 'Vanguard Euro Inv Gr Idx -Ins',
+            percentage: 34
+        },
+        {
+            assetClass: 'Bonos Gobiernos Europeos',
+            investment: 'Vanguard Eur Gv Bnd Idx -Ins',
+            percentage: 34
+        },
+        {
+            assetClass: 'Bonos Europeos ligados a la Inflación',
+            investment: 'Vanguard Euroz Inf Lk Idx -Ins',
+            percentage: 16
+        },
+        {
+            assetClass: 'Acciones Estados Unidos',
+            investment: 'Vanguard US 500 Stk Idx -Ins',
+            percentage: 10
+        },
+        {
+            assetClass: 'Bonos Países Emergentes Cubiertos a Euro',
+            investment: 'iShares EM Gov Bnd Idx -I2 Eur Hdg',
+            percentage: 3
+        },
+        {
+            assetClass: 'Acciones Europa',
+            investment: 'Pictet Europe Idx -I',
+            percentage: 3
+        }
     ]
 };
 

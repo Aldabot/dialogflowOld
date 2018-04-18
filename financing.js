@@ -11,7 +11,7 @@ export function getLenders() {
             maxTerm: 96,
             termUnit: 'month',
             url: `https://www.cetelem.es/`,
-            imgUrl: 'https://www.cetelem.es/documents/34437/103701/mr_credito.png/f85e937c-c1e1-24f5-498c-d54b0741a33a?t=1493977286630'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/cetelem.png'
         }, {
             name: 'Cofidis',
             type: 'Lending company',
@@ -23,7 +23,7 @@ export function getLenders() {
             maxTerm: 96,
             termUnit: 'year',
             url: 'https://www.cofidis.es/',
-            imgUrl: 'https://logos-download.com/wp-content/uploads/2016/08/Cofidis_logo.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/cofidis.png'
         }, {
             name: 'Creditea',
             type: 'Lending company',
@@ -35,7 +35,7 @@ export function getLenders() {
             maxTerm: 36,
             termUnit: 'month',
             url: 'https://creditea.com/',
-            imgUrl: 'https://www.portalprestamos.es/wp-content/uploads/2016/09/creditea5.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/creditea.png'
         }, {
             name: 'EVO Finance',
             type: 'Bank',
@@ -47,7 +47,7 @@ export function getLenders() {
             maxTerm: 96,
             termUnit: 'month',
             url: 'https://www.evofinance.com/',
-            imgUrl: 'https://cdn.tradetracker.net/es/campaign_image_square/17655.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/evofinance.png'
         }, {
             name: 'ING Direct',
             type: 'Bank',
@@ -59,7 +59,7 @@ export function getLenders() {
             maxTerm: 72,
             termUnit: 'month',
             url: 'https://www.ing.es/',
-            imgUrl: 'https://www.betterbanking.net.au/wp-content/uploads/2017/01/ing-direct.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/ing.png'
         }, {
             name: 'Quebueno',
             type: 'Lending company',
@@ -71,7 +71,7 @@ export function getLenders() {
             maxTerm: 46,
             termUnit: 'day',
             url: 'https://www.quebueno.es/',
-            imgUrl: 'http://www.agenciasdecomunicacion.org/wp-content/uploads/quebueno-hr-shadow.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/quebueno.png'
         }, {
             name: 'Solcredito',
             type: 'Lending company',
@@ -83,7 +83,7 @@ export function getLenders() {
             maxTerm: 90,
             termUnit: 'day',
             url: 'https://www.solcredito.es/',
-            imgUrl: 'https://www.busconomico.com/images/logo/logo-solcredito.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/solcredito.png'
         }, {
             name: 'Vivus',
             type: 'Lending company',
@@ -95,7 +95,7 @@ export function getLenders() {
             maxTerm: 30,
             termUnit: 'day',
             url: 'https://www.vivus.es/',
-            imgUrl: 'http://prestamondo.es/wp-content/uploads/thumbs_dir/vivus300-n9g0fqo4l4ve2if7ga5lx3t69urs2e76iyiiz33ekm.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/vivus.png'
         }, {
             name: 'Wonga',
             type: 'Lending company',
@@ -107,7 +107,7 @@ export function getLenders() {
             maxTerm: 60,
             termUnit: 'day',
             url: 'https://www.wonga.es/',
-            imgUrl: 'https://www.underconsideration.com/brandnew/archives/wonga_logo_detail.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/wonga.png'
         }, {
             name: 'Younited',
             type: 'Lending company',
@@ -119,7 +119,7 @@ export function getLenders() {
             maxTerm: 6,
             termUnit: 'year',
             url: 'https://es.younited-credit.com/',
-            imgUrl: 'https://www.investitin.com/wp-content/uploads/2017/04/logo_younited-1.png'
+            imgUrl: 'https://s3.eu-west-1.amazonaws.com/alda-images/younited.png'
         }
     ];
 };
@@ -140,6 +140,7 @@ export function aldaFinancingLoan(agent, lenders) {
     let totalMinAmount;
     let totalMaxAmount;
     agent.addTextMessage(`Perfecto, a continuación te muestro los mejores préstamos que ofrecen ${amount}€`);
+    agent.addTextMessage('Además de las opciones que te ofrezco, es posible que tu banco te ofrezca un préstamo preconcedido: este tipo de préstamo es el más rápido pero también es el más caro!');
 
     function urlToMarkdown(url, displayText) {
         return `[${__(displayText)}](${url})`;
