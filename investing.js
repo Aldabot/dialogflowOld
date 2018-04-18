@@ -574,6 +574,43 @@ function addInvestDictMesssages(agent, option) {
     }
 }
 
+function investingAddQ1(agent) {
+    agent.addQuickReplies('¿Qué rentabilidad buscas para tu cartera de inversión?', [
+        'No me importa.', '1-2% anual.', '3-4% anual.', '5-6% anual.', 'La máxima!'
+    ]);
+}
+function investingAddQ1Riskimeter(agent) {
+    let riskimeter = 0;
+    switch(agent.inputMessage) {
+    case 'No me importa.': riskimeter = -2; break;
+    case '1-2% anual.': riskimeter = -1; break;
+    case '3-4% anual.': riskimeter = 0; break;
+    case '5-6% anual.': riskimeter = 1; break;
+    case 'La máxima!': riskimeter = 2; break;
+    }
+    agent.addRiskimeter(riskimeter);
+}
+function investingAddQ2(agent) {
+    agent.addQuickReplies('El mercado de valores global es a menudo volátil. Imagina que tu cartera de inversiones pierde un 10% de su valor en un mes, ¿qué harías?', [
+        'Vender todo', 'Vender algo', 'Mantener', 'Comprar más'
+    ]);
+}
+function investingAddQ2Riskimeter(agent) {
+    let riskimeter = 0;
+    switch(agent.inputMessage) {
+    case 'Vender todo': riskimeter = -2; break;
+    case 'Vender algo': riskimeter = -1; break;
+    case 'Mantener': riskimeter = 1; break;
+    case 'La máxima!': riskimeter = 2; break;
+    }
+    agent.addRiskimeter(riskimeter);
+}
+function investingAddQ3(agent) {
+    agent.addQuickReplies('Si piensas en la palabra "riesgo", ¿cuál de las siguientes palabras te viene a la mente?', [
+        'Pérdida', 'Incertidumbre', 'Oportunidad', 'Emoción'
+    ]);
+}
+
 export function investingResult(agent) {
     let amount;
     let riskimeter;
@@ -583,7 +620,9 @@ export function investingResult(agent) {
             riskimeter = context.parameters.riskimeter;
         }
     }
+    console.log("riskimeter:", riskimeter);
 
+    agent.addTextMessage('Te reccomiendo:');
     switch(riskimeter) {
     case 1:
         if(amount < 10000) {
@@ -656,3 +695,24 @@ export function investingResult(agent) {
         }
     }
 }
+
+function investingLogic(agent) {
+    switch(agent.intentName) {
+    case "investing - amount":
+        investingAddQ1(agent);
+        break;
+    case "investing - question1":
+        investingAddQ1Riskimeter(agent);
+        investingAddQ2(agent);
+        break;
+    case "investing - question2":
+        investingAddQ2Riskimeter(agent);
+        investingAddQ3(agent);
+        break;
+    case "investing - result":
+        investingResult(agent);
+        break;
+    }
+}
+
+export default investingLogic;

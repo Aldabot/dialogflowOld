@@ -184,3 +184,13 @@ export function aldaFinancingLoan(agent, lenders) {
         }
     }
 }
+
+function financingLogic(agent) {
+    switch(agent.intentName) {
+    case 'alda.loan.application':
+        const lenders = getLenders();
+        aldaFinancingLoan(agent, lenders);
+    }
+}
+
+export default financingLogic;
