@@ -587,41 +587,20 @@ export function investingResult(agent) {
     switch(riskimeter) {
     case 1:
         if(amount < 10000) {
-            agent.addTextMessage('Bonos Globales a Largo Plazo,	Vanguard Global Bnd Idx -Ins,	86.0%');
-            agent.addTextMessage('Acciones Globales	Vanguard Global Stk Idx Eur -Ins	14,0%');
-        } else if( amount < 100000) {
-            agent.addTextMessage('Bonos Gobiernos Europeos	Vanguard Eur Gv Bnd Idx -Ins	35,0%');
-            agent.addTextMessage('Bonos Empresas Europeas	Vanguard Euro Inv Gr Idx -Ins	35,0%');
-            agent.addTextMessage('Bonos Europeos ligados a la Inflación	Vanguard Euroz Inf Lk Idx -Ins	16,0%');
-            agent.addTextMessage('Acciones Estados Unidos	Vanguard US 500 Stk Idx -Ins	10,0%');
-            agent.addTextMessage('Acciones Europa	Pictet Europe Idx -I	4,0%');
+            addInvestDictMesssages(agent, 'G');
+        } else if ( amount < 100000) {
+            addInvestDictMesssages(agent, 'N');
         } else {
-            agent.addTextMessage('Bonos Empresas Europeas	Vanguard Euro Inv Gr Idx -Ins	34,0%');
-            agent.addTextMessage('Bonos Gobiernos Europeos	Vanguard Eur Gv Bnd Idx -Ins	34,0%');
-            agent.addTextMessage('Bonos Europeos ligados a la Inflación	Vanguard Euroz Inf Lk Idx -Ins	16,0%');
-            agent.addTextMessage('Acciones Estados Unidos	Vanguard US 500 Stk Idx -Ins	10,0%');
-            agent.addTextMessage('Bonos Países Emergentes Cubiertos a Euro	iShares EM Gov Bnd Idx -I2 Eur Hdg	3,0%');
-            agent.addTextMessage('Acciones Europa	Pictet Europe Idx -I	3,0%');
+            addInvestDictMesssages(agent, 'U');
         }
         break;
     case 2:
         if(amount < 10000) {
-            agent.addTextMessage('Bonos Globales a Largo Plazo	Vanguard Global Bnd Idx -Ins	81,0%');
-            agent.addTextMessage('Acciones Globales	Vanguard Global Stk Idx Eur -Ins	19,0%');
+            addInvestDictMesssages(agent, 'F');
         } else if ( amount < 100000) {
-            agent.addTextMessage('Bonos Empresas Europeas	Vanguard Euro Inv Gr Idx -Ins	32,0%');
-            agent.addTextMessage('Bonos Gobiernos Europeos	Vanguard Eur Gv Bnd Idx -Ins	31,0%');
-            agent.addTextMessage('Bonos Europeos ligados a la Inflación	Vanguard Euroz Inf Lk Idx -Ins	18,0%');
-            agent.addTextMessage('Acciones Estados Unidos	Vanguard US 500 Stk Idx -Ins	11,0%');
-            agent.addTextMessage('Acciones Europa	Pictet Europe Idx -I	5,0%');
-            agent.addTextMessage('Acciones Economías Emergentes	Vanguard Emrg Mk Stk Idx -Ins	3,0%');
+            addInvestDictMesssages(agent, 'M');
         } else {
-            agent.addTextMessage('Bonos Empresas Europeas	Vanguard Euro Inv Gr Idx -Ins	31,0%');
-            agent.addTextMessage('Bonos Gobiernos Europeos	Vanguard Eur Gv Bnd Idx -Ins	30,0%');
-            agent.addTextMessage('Bonos Europeos ligados a la Inflación	Vanguard Euroz Inf Lk Idx -Ins	18,0%');
-            agent.addTextMessage('Acciones Estados Unidos	Vanguard US 500 Stk Idx -Ins	14,0%');
-            agent.addTextMessage('Acciones Europa	Pictet Europe Idx -I	4,0%');
-            agent.addTextMessage('Bonos Países Emergentes Cubiertos a Euro	iShares EM Gov Bnd Idx -I2 Eur Hdg	3,0%');
+            addInvestDictMesssages(agent, 'T');
         }
         break;
     case 3:
@@ -631,6 +610,42 @@ export function investingResult(agent) {
             addInvestDictMesssages(agent, 'L');
         } else {
             addInvestDictMesssages(agent, 'S');
+        }
+        break;
+    case 4:
+        if(amount < 10000) {
+            addInvestDictMesssages(agent, 'D');
+        } else if ( amount < 100000) {
+            addInvestDictMesssages(agent, 'K');
+        } else {
+            addInvestDictMesssages(agent, 'R');
+        }
+        break;
+    case 5:
+        if(amount < 10000) {
+            addInvestDictMesssages(agent, 'C');
+        } else if ( amount < 100000) {
+            addInvestDictMesssages(agent, 'J');
+        } else {
+            addInvestDictMesssages(agent, 'Q');
+        }
+        break;
+    case 6:
+        if(amount < 10000) {
+            addInvestDictMesssages(agent, 'B');
+        } else if ( amount < 100000) {
+            addInvestDictMesssages(agent, 'I');
+        } else {
+            addInvestDictMesssages(agent, 'P');
+        }
+        break;
+    case 7:
+        if(amount < 10000) {
+            addInvestDictMesssages(agent, 'A');
+        } else if ( amount < 100000) {
+            addInvestDictMesssages(agent, 'H');
+        } else {
+            addInvestDictMesssages(agent, 'O');
         }
         break;
     default:
