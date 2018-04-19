@@ -77,7 +77,7 @@ class DialogflowV1 {
 
     addRiskimeter(riskimeter) {
         for(const context of this.response.contextOut) {
-            if(context.name === 'investing-followup') {
+            if(context.name === 'investment') {
                 context.parameters.riskimeter = parseInt(context.parameters.riskimeter);
                 context.parameters.riskimeter += riskimeter;
             }

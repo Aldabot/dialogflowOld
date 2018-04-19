@@ -653,10 +653,10 @@ function addQ9(agent) {
 function addQ9Riskimeter(agent) {
     let riskimeter = 0;
     switch(agent.inputMessage) {
-    case "Menos de 25%": riskimeter = 2; break;
+    case "Menos del 25%": riskimeter = 2; break;
     case "25%-50%": riskimeter = 1; break;
     case "50%-75%": riskimeter = -1; break;
-    case "Más que 75%"; riskimeter = -2; break;
+    case "Más que 75%": riskimeter = -2; break;
     }
 }
 function addQ10(agent) {
@@ -678,38 +678,34 @@ function addQ10Riskimeter(agent) {
 
 function investingLogic(agent) {
     switch(agent.intentName) {
-    case "investing - amount":
+    case "alda.investment - amount":
         addQ1(agent);
         break;
-    case "investing - question1":
+    case "alda.investment - question1":
         addQ1Riskimeter(agent);
         addQ2(agent);
         break;
-    case "investing - question2":
+    case "alda.investment - question2":
         addQ2Riskimeter(agent);
         addQ3(agent);
         break;
-    case "investing - question3":
+    case "alda.investment - question3":
         addQ3Riskimeter(agent);
         addQ4(agent);
         break;
-    case "investing - question4":
+    case "alda.investment - question4":
         addQ3Riskimeter(agent);
-        addQ4(agent);
-        break;
-    case "investing - question8":
-        addQ4Riskimeter(agent);
         addQ8(agent);
         break;
-    case "investing - question9":
+    case "alda.investment - question8":
         addQ8Riskimeter(agent);
         addQ9(agent);
         break;
-    case "investing - question10":
+    case "alda.investment - question9":
         addQ9Riskimeter(agent);
         addQ10(agent);
         break;
-    case "investing - result":
+    case "alda.investment - result":
         addQ10Riskimeter(agent);
         investingResult(agent);
         break;
@@ -720,7 +716,7 @@ export function investingResult(agent) {
     let amount;
     let riskimeter;
     for (const context of agent.contexts) {
-        if (context.name === 'investing-followup') {
+        if (context.name === 'investment') {
             amount = context.parameters.amount;
             riskimeter = context.parameters.riskimeter;
         }
